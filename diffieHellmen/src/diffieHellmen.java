@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class diffieHellmen {
-
+    //new
     public void randomGenerator(int prime) {
         int min = 10000;
         int max = 100000;
