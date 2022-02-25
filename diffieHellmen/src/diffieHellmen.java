@@ -13,7 +13,7 @@ public class diffieHellmen {
         if(prime % 2 == 0){
             isPrime = false;
         }
-        System.out.println("practice");
+        System.out.println("practice again");
 
     }
 }
