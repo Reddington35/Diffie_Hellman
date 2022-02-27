@@ -30,7 +30,6 @@ public class Diffie_Hellman {
 
     public void primitiveRoot(int prime){
         HashSet<Integer> prim = new HashSet<Integer>();
-
         for(int i = 1;i < prime;i++){
             ArrayList<Integer> column = new ArrayList<Integer>();
             for(int j = 1;j < prime;j++){
