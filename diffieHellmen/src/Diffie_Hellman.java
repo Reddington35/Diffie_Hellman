@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Diffie_Hellman {
@@ -25,6 +26,22 @@ public class Diffie_Hellman {
         int randomPrime = arr.get(ThreadLocalRandom.current().nextInt(0,arr.size()));
         System.out.println("Generated Prime Number = " + randomPrime);
         return  randomPrime;
+    }
+
+    public void primitiveRoot(int prime){
+        HashSet<Integer> prim = new HashSet<Integer>();
+
+        for(int i = 1;i < prime;i++){
+            ArrayList<Integer> column = new ArrayList<Integer>();
+            for(int j = 1;j < prime;j++){
+                int result = (int)Math.pow(i,j) % prime;
+                column.add(result);
+            }
+            prim = new HashSet<Integer>(column);
+            if(column.size() == prim.size()){
+                System.out.println("Primitive root is " + i);
+            }
+        }
     }
 }
 
