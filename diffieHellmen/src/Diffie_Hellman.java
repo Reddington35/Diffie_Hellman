@@ -28,6 +28,7 @@ public class Diffie_Hellman {
         return  randomPrime;
     }
 
+    // Method for finding Primitive root
     public void primitiveRoot(int prime){
         HashSet<Integer> prim = new HashSet<Integer>();
         for(int i = 1;i < prime;i++){
