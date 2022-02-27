@@ -4,6 +4,6 @@ public class Driver {
     public static void main(String args[]){
         Diffie_Hellman dif = new Diffie_Hellman();
         dif.primeGenerator();
-        dif.primitiveRoot(17);
+        dif.primitiveRoot(4);
     }
 }
