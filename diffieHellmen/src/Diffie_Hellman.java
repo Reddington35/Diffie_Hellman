@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Diffie_Hellman {
@@ -7,6 +8,7 @@ public class Diffie_Hellman {
     // Member Variables used
     private int prime = 10000;
     private int moduloBreak = 3;
+    private int p = 0;
     private ArrayList<Integer> arr = new ArrayList<Integer>();
 
     // Method for generating random prime numbers
@@ -47,9 +49,9 @@ public class Diffie_Hellman {
     }
 
     // Method for finding Primitive root
-    public void primitiveRoot(int prime) {
+    public List<Integer> primitiveRoot(int prime) {
         HashSet<Integer> prim = new HashSet<Integer>();
-
+        ArrayList<Integer> p = new ArrayList<Integer>();
         for (int i = 1; i < prime; i++) {
             ArrayList<Integer> column = new ArrayList<Integer>();
             for (int j = 1; j < prime; j++) {
@@ -58,9 +60,13 @@ public class Diffie_Hellman {
             }
             prim = new HashSet<Integer>(column);
             if (column.size() == prim.size()) {
-                System.out.println("Primitive root is " + i);
+                p.add(i);
             }
         }
+        System.out.println("Primitive roots are " + p);
+        System.out.println("Random Primitive root is "
+                + p.get(ThreadLocalRandom.current().nextInt(0, p.size())));
+        return p;
     }
 
     // Method for calculating Prime
@@ -80,6 +86,10 @@ public class Diffie_Hellman {
         count = count % modulous;
         System.out.println("\nCalculation for Prime is  " + count);
         return count;
+    }
+
+    public void keyExchange(){
+
     }
 }
 
