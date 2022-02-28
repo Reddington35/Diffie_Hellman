@@ -28,6 +28,7 @@ public class Diffie_Hellman {
         return randomPrime;
     }
 
+    // Method for splitting large primes to prevent overflow
     public int largeModulous(int number, int power, int modulous){
         int breakNum = 3;
         int breakPoint = power / breakNum;
@@ -62,6 +63,7 @@ public class Diffie_Hellman {
         }
     }
 
+    // Method for calculating Prime
     public int calculatePrime(int number, int power, int modulous){
         int breakNum = 3;
         int breakPoint = power / breakNum;
