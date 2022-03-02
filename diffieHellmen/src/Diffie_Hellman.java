@@ -32,20 +32,16 @@ public class Diffie_Hellman {
 
     // Method for splitting large primes to prevent overflow
     public int largeModulous(int number, int power, int modulous){
-        //System.out.println(number + " ^ " + " mod " + modulous);
-        int breakNum = 1;
-        int breakPoint = power / breakNum;
-        int remainder = power % breakNum;
-
+        System.out.println(number + " ^ " + power + " % " + modulous);
         int count = 1;
-        for (int k = 0; k < breakPoint; k++) {
-            count *= (int) Math.pow(number,breakNum) % modulous;
-            count = count % modulous;
+        number = number % modulous;
+        while(power > 0){
+            if(power % 2 == 1){
+                count = (count * number) % modulous;
+            }
+            power = power / 2;
+            number = (number * number) % modulous;
         }
-        if (remainder != 0) {
-            count *= (int) Math.pow(number, remainder) % modulous;
-        }
-        count = count % modulous;
         return count;
     }
 
@@ -70,29 +66,20 @@ public class Diffie_Hellman {
         return p.get(ThreadLocalRandom.current().nextInt(0, p.size()));
     }
 
-    // Method for calculating Prime
-    public int calculatePrime(int number, int power, int modulous){
-        int breakNum = 1;
-        int breakPoint = power / breakNum;
-        int remainder = power % breakNum;
-
-        int count = 1;
-        for (int k = 0; k < breakPoint; k++) {
-            count *= (int) Math.pow(number, breakNum) % modulous;
-            count = count % modulous;
-        }
-        if (remainder != 0) {
-            count *= (int) Math.pow(number, remainder) % modulous;
-        }
-        count = count % modulous;
-        System.out.println("Calculated prime = " + count);
-        return count;
-    }
-
     public void keyExchange(){
-        int randPrime = primeGenerator();
-        int root = primitiveRoot(109);
-        int calcPrime = calculatePrime(randPrime,3,5);
+        int publicRandom = primeGenerator();
+        int bob = publicRandom;
+        int alice = publicRandom;
+        int root = primitiveRoot(publicRandom);
+        int bobKey = largeModulous(root,bob,publicRandom);
+        int aliceKey = largeModulous(root,alice,publicRandom);
+        if (aliceKey % publicRandom == bobKey){
+            System.out.println("Alice generates key " + alice);
+        }
+        if(bobKey % publicRandom == aliceKey){
+            System.out.println("Bob generates key " + bob);
+        }
+        System.out.println("Key exchange completed");
     }
 }
 
