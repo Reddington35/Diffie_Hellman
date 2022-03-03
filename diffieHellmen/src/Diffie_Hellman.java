@@ -32,24 +32,29 @@ public class Diffie_Hellman {
 
     // Method for splitting large primes to prevent overflow
     public int largeModulous(int number, int power, int modulous){
-        int breakNum = 3;
+       System.out.println(number + " " + power + " " + modulous);
+        int breakNum = 1;
+        if(number > modulous){
+            number = modulous;
+        }
         int breakPoint = power / breakNum;
         int remainder = power % breakNum;
 
         int count = 1;
         for (int k = 0; k < breakPoint; k++) {
-            count *= (int) Math.pow(number, breakNum) % modulous;
+            count *= (int) Math.pow(number,breakNum) % modulous;
             count = count % modulous;
         }
         if (remainder != 0) {
-            count *= (int) Math.pow(number, remainder) % modulous;
+            count *= (int) Math.pow(number, remainder);
         }
-        count = count % modulous;
+        count = count  % modulous;
+        System.out.println(" = " + count);
         return count;
     }
 
     // Method for finding Primitive root
-    public List<Integer> primitiveRoot(int prime) {
+    public int primitiveRoot(int prime) {
         HashSet<Integer> prim = new HashSet<Integer>();
         ArrayList<Integer> p = new ArrayList<Integer>();
         for (int i = 1; i < prime; i++) {
@@ -66,7 +71,7 @@ public class Diffie_Hellman {
         System.out.println("Primitive roots are " + p);
         System.out.println("Random Primitive root is "
                 + p.get(ThreadLocalRandom.current().nextInt(0, p.size())));
-        return p;
+        return p.get(ThreadLocalRandom.current().nextInt(0, p.size()));
     }
 
     // Method for calculating Prime
@@ -78,7 +83,7 @@ public class Diffie_Hellman {
         int count = 1;
         for (int k = 0; k < breakPoint; k++) {
             count *= (int) Math.pow(number, breakNum) % modulous;
-            count = count%modulous;
+            count = count % modulous;
         }
         if (remainder != 0) {
             count *= (int) Math.pow(number, remainder) % modulous;
@@ -89,7 +94,10 @@ public class Diffie_Hellman {
     }
 
     public void keyExchange(){
-
+        ArrayList<Integer> arr = new ArrayList<>();
+        prime = primeGenerator();
+        int Primroot = primitiveRoot(prime);
+        //System.out.println(prime);
     }
 }
 
