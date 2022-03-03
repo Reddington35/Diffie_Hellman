@@ -28,6 +28,8 @@ public class Diffie_Hellman {
     }
 
     // Method for splitting large primes to prevent overflow
+    // some of the logic was taken from Geeks for Geeks
+    // (Primitive root of a prime number n modulo n - GeeksforGeeks, 2022)
     public int largeModulous(int number, int power, int modulous){
         //System.out.println(number + " ^ " + power + " % " + modulous);
         int count = 1;
@@ -43,6 +45,8 @@ public class Diffie_Hellman {
     }
 
     // Method for finding Primitive root
+    // some of the logic was taken from Geeks for Geeks
+    // (Primitive root of a prime number n modulo n - GeeksforGeeks, 2022)
     public int primitiveRoot(int prime) {
         HashSet<Integer> prim = new HashSet<Integer>();
         ArrayList<Integer> p = new ArrayList<Integer>();
@@ -63,3 +67,5 @@ public class Diffie_Hellman {
         return p.get(ThreadLocalRandom.current().nextInt(0, p.size()));
     }
 }
+// References and Bibliography
+// GeeksforGeeks. 2022. Primitive root of a prime number n modulo n - GeeksforGeeks. [online] Available at: <https://www.geeksforgeeks.org/primitive-root-of-a-prime-number-n-modulo-n/> [Accessed 3 March 2022].

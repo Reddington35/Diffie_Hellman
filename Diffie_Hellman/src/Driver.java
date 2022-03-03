@@ -60,3 +60,6 @@ public class Driver {
     }
 }
 
+//  References and Bibliography
+//  GeeksforGeeks. 2022. Primitive root of a prime number n modulo n - GeeksforGeeks. [online] Available at: <https://www.geeksforgeeks.org/primitive-root-of-a-prime-number-n-modulo-n/> [Accessed 3 March 2022].
+
