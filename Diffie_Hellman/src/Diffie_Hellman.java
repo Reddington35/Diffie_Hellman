@@ -28,7 +28,7 @@ public class Diffie_Hellman {
     }
 
     // Method for splitting large primes to prevent overflow
-    // some of the logic was taken from Geeks for Geeks
+    // some logic was taken from Geeks for Geeks
     // (Primitive root of a prime number n modulo n - GeeksforGeeks, 2022)
     public int largeModulous(int number, int power, int modulous){
         //System.out.println(number + " ^ " + power + " % " + modulous);
@@ -45,7 +45,7 @@ public class Diffie_Hellman {
     }
 
     // Method for finding Primitive root
-    // some of the logic was taken from Geeks for Geeks
+    // some logic was taken from Geeks for Geeks
     // (Primitive root of a prime number n modulo n - GeeksforGeeks, 2022)
     public int primitiveRoot(int prime) {
         HashSet<Integer> prim = new HashSet<Integer>();
