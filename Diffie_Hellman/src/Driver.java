@@ -3,6 +3,7 @@ public class Driver {
     // Main Method used as a Driver for DiffieHellman methods
     public static void main(String args[]){
 
+        // Diffie Hellman Opperations
         System.out.println("\nDiffie Hellman Opperations");
         System.out.println("**********************************************");
         int XB =40,MA = 0,XA = 20;
@@ -43,6 +44,7 @@ public class Driver {
         KA = dif.largeModulous(YM,XA,q);
         System.out.println("Alice's Shared Key is " + KA);
 
+        // Alice thinks she is communicating with Bob, however Mallory has hijacked the communication
         int KMa = dif.largeModulous(YA,XM,q);
         System.out.println("Mallory,s shared key is " + KMa);
         System.out.println("Alice - Malory key exchange completed");
@@ -51,6 +53,7 @@ public class Driver {
         KB = dif.largeModulous(YM,XB,q);
         System.out.println("Bob's Shared Key is " + KB);
 
+        // Bob thinks he is communicating with Alice, however Mallory has hijacked the communication
         int KMb = dif.largeModulous(YB,XM,q);
         System.out.println("Mallory shared key is " + KMb);
         System.out.println("Bob - Mallory key exchange completed");
