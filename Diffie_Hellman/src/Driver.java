@@ -6,7 +6,7 @@ public class Driver {
         // Diffie Hellman Opperations
         System.out.println("\nDiffie Hellman Opperations");
         System.out.println("**********************************************");
-        int XB =40,MA = 0,XA = 20;
+        int XB =40,XA = 20;
         int XM = 10,YM = 30;
         Diffie_Hellman dif = new Diffie_Hellman();
         int q = dif.primeGenerator();
@@ -17,7 +17,7 @@ public class Driver {
         System.out.println("\n");
 
         // Assume that YA is sent to UserB by UserA and
-        // YB is sent toi UserA by UserB
+        // YB is sent to UserA by UserB
         System.out.println("Alice and Bob's Key Exchange");
         System.out.println("**********************************************");
         System.out.println("Bobs key is " + XA);
