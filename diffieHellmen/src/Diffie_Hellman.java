@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Diffie_Hellman {
@@ -8,7 +7,9 @@ public class Diffie_Hellman {
     // Member Variables used
     private int prime = 10000;
     private int moduloBreak = 3;
-    private int p = 0;
+    private int primRoot = 0;
+    private int bob = 0;
+    private int alice =0;
     private ArrayList<Integer> arr = new ArrayList<Integer>();
 
     // Method for generating random prime numbers
@@ -32,24 +33,16 @@ public class Diffie_Hellman {
 
     // Method for splitting large primes to prevent overflow
     public int largeModulous(int number, int power, int modulous){
-       System.out.println(number + " " + power + " " + modulous);
-        int breakNum = 1;
-        if(number > modulous){
-            number = modulous;
-        }
-        int breakPoint = power / breakNum;
-        int remainder = power % breakNum;
-
+        //System.out.println(number + " ^ " + power + " % " + modulous);
         int count = 1;
-        for (int k = 0; k < breakPoint; k++) {
-            count *= (int) Math.pow(number,breakNum) % modulous;
-            count = count % modulous;
+        number = number % modulous;
+        while(power > 0){
+            if(power % 2 == 1){
+                count = (count * number) % modulous;
+            }
+            power = power / 2;
+            number = (number * number) % modulous;
         }
-        if (remainder != 0) {
-            count *= (int) Math.pow(number, remainder);
-        }
-        count = count  % modulous;
-        System.out.println(" = " + count);
         return count;
     }
 
@@ -74,30 +67,29 @@ public class Diffie_Hellman {
         return p.get(ThreadLocalRandom.current().nextInt(0, p.size()));
     }
 
-    // Method for calculating Prime
-    public int calculatePrime(int number, int power, int modulous){
-        int breakNum = 3;
-        int breakPoint = power / breakNum;
-        int remainder = power % breakNum;
+    public void keyExchange(int bob,int alice){
+        int publicRandom = primeGenerator();
+        System.out.println(publicRandom);
+        this.bob = bob;
+        this.alice = alice;
+        int root = primitiveRoot(publicRandom);
 
-        int count = 1;
-        for (int k = 0; k < breakPoint; k++) {
-            count *= (int) Math.pow(number, breakNum) % modulous;
-            count = count % modulous;
-        }
-        if (remainder != 0) {
-            count *= (int) Math.pow(number, remainder) % modulous;
-        }
-        count = count % modulous;
-        System.out.println("\nCalculation for Prime is  " + count);
-        return count;
-    }
+        int bobKey = largeModulous(root,bob,publicRandom);
+        int aliceKey = largeModulous(root,alice,publicRandom);
 
-    public void keyExchange(){
-        ArrayList<Integer> arr = new ArrayList<>();
-        prime = primeGenerator();
-        int Primroot = primitiveRoot(prime);
-        //System.out.println(prime);
+        System.out.println("Bobs key is " + bob);
+        System.out.println("After Key Exchange, Bob's key is " + bobKey);
+        bobKey = aliceKey;
+
+        System.out.println("Alice's key is " + alice);
+        System.out.println("After Key Exchange, Alice's key is " + aliceKey);
+        aliceKey = bobKey;
+
+        int sharedA = largeModulous(aliceKey,bobKey,publicRandom);
+        int sharedB = largeModulous(bobKey,aliceKey,publicRandom);
+        System.out.println("Alice,s shared key is " + sharedA);
+        System.out.println("Bob,s shared key is " + sharedB);
+        System.out.println("Key exchange completed");
     }
 }
 
