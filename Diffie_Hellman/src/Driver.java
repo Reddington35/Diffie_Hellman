@@ -36,7 +36,6 @@ public class Driver {
         KA = dif.largeModulous(YM,XA,q);
         System.out.println("Alice's Key is " + KA);
 
-        // Alice is now communicating with Mallory
         int KMa = dif.largeModulous(YA,XM,q);
         System.out.println("Mallory,s shared key is " + KMa);
         System.out.println("Alice Malory key exchange completed");
@@ -50,3 +49,4 @@ public class Driver {
         System.out.println("Malory - Bob key exchange completed");
     }
 }
+
