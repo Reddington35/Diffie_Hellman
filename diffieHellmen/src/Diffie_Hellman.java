@@ -6,14 +6,14 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Diffie_Hellman {
 
     // Member Variables used
-    private int prime = 10000;
+    private int prime = 100;
     private int moduloBreak = 3;
     private int p = 0;
     private ArrayList<Integer> arr = new ArrayList<Integer>();
 
     // Method for generating random prime numbers
     public int primeGenerator() {
-        for (int i = prime; i < 100000; i++) {
+        for (int i = prime; i < 1000; i++) {
             boolean foundFactor = false;
             for (int j = 2; j <= Math.sqrt(i); j++) {
                 if (i % j == 0) {
@@ -32,7 +32,7 @@ public class Diffie_Hellman {
 
     // Method for splitting large primes to prevent overflow
     public int largeModulous(int number, int power, int modulous){
-        System.out.println(number + " ^ " + power + " % " + modulous);
+        //System.out.println(number + " ^ " + power + " % " + modulous);
         int count = 1;
         number = number % modulous;
         while(power > 0){
@@ -68,17 +68,28 @@ public class Diffie_Hellman {
 
     public void keyExchange(){
         int publicRandom = primeGenerator();
-        int bob = publicRandom;
-        int alice = publicRandom;
+        System.out.println(publicRandom);
+        int bob = 320;
+        int alice = 3040;
         int root = primitiveRoot(publicRandom);
-        int bobKey = largeModulous(root,bob,publicRandom);
-        int aliceKey = largeModulous(root,alice,publicRandom);
-        if (aliceKey % publicRandom == bobKey){
-            System.out.println("Alice generates key " + alice);
+
+        int keyBob = largeModulous(root,alice,publicRandom);
+        System.out.println("Bobs key is " + bob);
+        System.out.println("After Key Exchange, Bob's key is " + keyBob);
+
+        int keyAlice = largeModulous(root,bob,publicRandom);
+        System.out.println("Alice's key is " + alice);
+        System.out.println("After Key Exchange, Alice's key is " + keyAlice);
+
+
+        if(largeModulous(root,alice,publicRandom) == keyBob){
+            System.out.println("Bobs's shared key is " + keyAlice);
         }
-        if(bobKey % publicRandom == aliceKey){
-            System.out.println("Bob generates key " + bob);
+
+        if(largeModulous(root,bob,publicRandom) == keyAlice){
+            System.out.println("Alice's shared key is " + keyAlice);
         }
+
         System.out.println("Key exchange completed");
     }
 }
