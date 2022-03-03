@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b09455ad-6d2f-40c8-b497-b214391fb1a1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Diffie_Hellman.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Diffie_Hellman.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Diffie_Hellman/Diffie_Hellman.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Diffie_Hellman/Driver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Diffie_Hellman.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../diffieHellmen/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../diffieHellmen/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../diffieHellmen/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../diffieHellmen/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../diffieHellmen/diffieHellmen.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../diffieHellmen/out/production/diffieHellmen/Diffie_Hellman.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../diffieHellmen/out/production/diffieHellmen/Driver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../diffieHellmen/src/Diffie_Hellman.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../diffieHellmen/src/Driver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Diffie_Hellman/Diffie_Hellman.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Diffie_Hellman/Driver.class" beforeDir="false" />
-    </list>
+    <list default="true" id="b09455ad-6d2f-40c8-b497-b214391fb1a1" name="Changes" comment="Diffie Hellman Algorithm" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +9,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="25suZcs2AqF9H63uprx7NxDqxzB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -65,8 +46,34 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1646328179713</updated>
-      <workItem from="1646328183784" duration="1000" />
+      <workItem from="1646328183784" duration="340000" />
     </task>
+    <task id="LOCAL-00001" summary="Diffie Hellman Algorithm">
+      <created>1646328463699</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1646328463699</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Diffie Hellman Algorithm" />
+    <option name="LAST_COMMIT_MESSAGE" value="Diffie Hellman Algorithm" />
   </component>
 </project>
