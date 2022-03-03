@@ -56,6 +56,8 @@ public class Diffie_Hellman {
                 int count = largeModulous(i, j, prime);
                 column.add(count);
             }
+
+            // Hashset used here to remove duplicates
             prim = new HashSet<Integer>(column);
             if (column.size() == prim.size()) {
                 p.add(i);
