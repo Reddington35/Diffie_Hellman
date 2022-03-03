@@ -5,7 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Diffie_Hellman {
 
     // Member Variables used
-    private int prime = 100;
+    private int prime = 10000;
     private int moduloBreak = 3;
     private int primRoot = 0;
     private int bob = 0;
@@ -14,7 +14,7 @@ public class Diffie_Hellman {
 
     // Method for generating random prime numbers
     public int primeGenerator() {
-        for (int i = prime; i < 1000; i++) {
+        for (int i = prime; i < 100000; i++) {
             boolean foundFactor = false;
             for (int j = 2; j <= Math.sqrt(i); j++) {
                 if (i % j == 0) {
