@@ -6,12 +6,16 @@ public class Driver {
         // Diffie Hellman Opperations
         System.out.println("\nDiffie Hellman Opperations");
         System.out.println("**********************************************");
+        // member variables used
         int XB =40,XA = 20;
         int XM = 10,YM = 30;
+        // object instanced here
         Diffie_Hellman dif = new Diffie_Hellman();
+        // methods to be used from object
         int q = dif.primeGenerator();
         int a = dif.primitiveRoot(q);
 
+        // using lecture notes used largeModulous() method to calculate new keys
         int YA = dif.largeModulous(a,XA,q);
         int YB = dif.largeModulous(a,XB,q);
         System.out.println("\n");
